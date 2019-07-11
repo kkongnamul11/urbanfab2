@@ -17,7 +17,9 @@ def get_data(p, iter, savePath, ftp, ftp_dir):
 	data["Temp"] = temp["tool0"]
 	data["Bed_Temp"] = temp["bed"]
 	data["Image_name"] = image_name
-	
+	if(iter == 20):
+    		data["completion"] = 100
+			data["printTimeLeft"] = 0
 	#data["Image_url"] = os.path.join(ftp_dir, image_name)
 	with picamera.PiCamera() as camera:
             camera.capture(os.path.join(savePath, image_name), "jpeg")

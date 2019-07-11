@@ -6,13 +6,13 @@ from monitor import start_print, init_print
 import RPi.GPIO as gpio
 
 
-host = '122.34.245.29'
+host = '61.79.105.49'
 username = 'ftprint'
 password = 'print.123'
 ftp = FTP("")
 
-com_name = 'loadpower'
-print_number = 'load_printer'
+com_name = 'lordpower'
+print_number = 'lord_printer'
 jobNumber = ''
 
 
@@ -76,8 +76,6 @@ class connection():
 						ftp.cwd('..')
 				else:
 					ftp.cwd('..')
-
-
 
 
     def ftp_quit(self):
