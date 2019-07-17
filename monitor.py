@@ -95,5 +95,6 @@ def start_print(printer, Filename, save_path, ftp, ftp_dir):
 
     print(is_error, is_done)
     get_data(printer, 20, save_path, ftp, ftp_dir)
+	time.sleep(5)
     shutil.rmtree(save_path)
     return is_error, is_done

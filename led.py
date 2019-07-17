@@ -5,9 +5,9 @@ gpio.setmode(gpio.BCM)
 
 print "start led"
 
-gpio.setup(17, gpio.OUT)
-gpio.setup(27, gpio.OUT)
-gpio.setup(22, gpio.OUT)
+gpio.setup(17, gpio.OUT) #R
+gpio.setup(27, gpio.OUT) #G
+gpio.setup(22, gpio.OUT) #B
 
 
 try:

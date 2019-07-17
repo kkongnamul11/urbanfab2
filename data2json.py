@@ -8,8 +8,8 @@ def get_data(p, iter, savePath, ftp, ftp_dir):
 	image_name = 'image_%02d.jpg'%(iter*5)
 	temp = p.get_current_temperatures()
 	progress = p.get_current_data()['progress']
-	for s in progress :
-            print(s)
+	#for s in progress :
+    #        print(s)
 	data["completion"] = progress["completion"]
 	data["printTimeLeft"] = progress["printTimeLeft"]
 	data["printTime"] = progress["printTime"]

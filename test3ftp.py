@@ -2,6 +2,7 @@
 from ftplib import FTP
 import glob
 import os
+import time
 from monitor import start_print, init_print
 import RPi.GPIO as gpio
 
@@ -11,8 +12,11 @@ username = 'ftprint'
 password = 'print.123'
 ftp = FTP("")
 
+
+# com_name = 'pharmcon'
+# print_number = 'pharm_printer'  
 com_name = 'lordpower'
-print_number = 'lord_printer'
+print_number = 'lord_printer'  
 jobNumber = ''
 
 
@@ -29,6 +33,17 @@ class connection():
 		gpio.setup(17, gpio.OUT)  # red
 		gpio.setup(27, gpio.OUT)  # green
 		gpio.setup(22, gpio.OUT)  # blue
+
+		gpio.output(17,True)
+        gpio.output(27,True)
+        gpio.output(22,True)
+        time.sleep(2)
+
+        gpio.output(17,False)
+        gpio.output(27,False)
+        gpio.output(22,False)
+        time.sleep(1)
+
 		if not os.path.isdir(self.temp_path):
                     os.mkdir(self.temp_path)
 		self.printer = init_print(self.temp_path)
@@ -64,7 +79,7 @@ class connection():
 							if(self.is_error):
 								break
 							elif(self.is_done):
-								ftp.cwd("..")
+								ftp.cwd('..')
 								break
 						except Exception as ex:
 							print("Exception error : ", ex)
